@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Acceso | Gestión empresarial</title>
+    <!-- Bootstrap proporciona la grilla, componentes y estilos base de la aplicación. -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+<body class="login-page">
+    <!-- Vista de autenticación: el formulario envía las credenciales al controller de login. -->
+    <main class="container min-vh-100 d-flex align-items-center justify-content-center py-5">
+        <div class="card login-card border-0 shadow-lg">
+            <div class="row g-0">
+                <section class="col-lg-5 brand-panel text-white p-5 d-none d-lg-flex flex-column justify-content-between">
+                    <div>
+                        <p class="text-uppercase small fw-semibold letter-spacing mb-4">Sistema administrativo</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium numquam itaque quibusdam aliquid sit tempore quae aliquam temporibus consectetur quidem hic incidunt rem voluptatibus corrupti velit maxime fuga, quia magni?</p>
+                    </div>
+                </section>
+                <section class="col-lg-7 bg-white p-4 p-md-5">
+                    <div class="py-lg-4">
+                        <span class="badge rounded-pill text-bg-primary-subtle text-primary mb-3">Portal interno</span>
+                        <h2 class="fw-bold">Bienvenido</h2>
+                        <p class="text-secondary mb-4">Ingresa tus credenciales para continuar.</p>
+                        <div id="alertContainer"></div>
+                        <!-- Los nombres de los campos son utilizados por loginController.js. -->
+                        <form id="loginForm">
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Usuario</label>
+                                <input type="text" class="form-control form-control-lg" id="username" name="username" autocomplete="username" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="password" class="form-label">Contraseña</label>
+                                <input type="password" class="form-control form-control-lg" id="password" name="password" autocomplete="current-password" required>
+                            </div>
+                            <button id="submitButton" class="btn btn-primary btn-lg w-100" type="submit">Iniciar sesión</button>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+    <!-- Cada vista importa directamente su controller como módulo ES. -->
+    <script type="module" src="js/controllers/loginController.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es" class="auth-pending">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Departamentos | Gestión empresarial</title>
+    <!-- Framework visual usado por todas las vistas del cliente. -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+<body class="bg-body-tertiary">
+    <!-- Navegación entre las vistas disponibles del sistema. -->
+    <nav class="navbar navbar-expand-lg navbar-dark app-navbar shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="departamentos.html"><span class="brand-mark brand-mark-sm me-2">ITR</span> Gestión empresarial</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <div class="navbar-nav ms-auto gap-lg-2">
+                    <a class="nav-link active" href="departamentos.html">Departamentos</a>
+                    <a class="nav-link" href="empleados.html">Empleados</a>
+                    <button id="logoutButton" class="btn btn-outline-light btn-sm ms-lg-2" type="button">Cerrar sesión</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- La tabla se llena dinámicamente con GET /api/departamentos. -->
+    <main class="container py-5">
+        <div class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-3 mb-4">
+            <div><p class="section-label mb-1">Organización</p><h1 class="h2 fw-bold mb-0">Departamentos</h1></div>
+            <button id="newButton" class="btn btn-primary px-4">+ Nuevo departamento</button>
+        </div>
+        <div id="alertContainer"></div>
+        <section class="card border-0 shadow-sm">
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead><tr><th>ID</th><th>Nombre</th><th>Abreviatura</th><th>Ubicación</th><th class="text-end">Acciones</th></tr></thead>
+                        <tbody id="departamentosTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal reutilizado para crear y editar un departamento. -->
+    <div class="modal fade" id="departamentoModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow">
+                <form id="departamentoForm">
+                    <div class="modal-header"><h2 class="modal-title fs-5" id="modalTitle">Nuevo departamento</h2><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+                    <div class="modal-body">
+                        <input type="hidden" id="departamentoId" name="departamentoId">
+                        <div class="mb-3"><label class="form-label" for="nombreDepto">Nombre</label><input class="form-control" id="nombreDepto" name="nombreDepto" minlength="5" maxlength="50" required></div>
+                        <div class="mb-3"><label class="form-label" for="abreviatura">Abreviatura</label><input class="form-control" id="abreviatura" name="abreviatura" maxlength="5"></div>
+                        <div><label class="form-label" for="ubicacion">Ubicación</label><input class="form-control" id="ubicacion" name="ubicacion"></div>
+                    </div>
+                    <div class="modal-footer"><button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button><button id="saveButton" type="submit" class="btn btn-primary">Guardar</button></div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap bundle habilita el comportamiento del modal y el menú responsive. -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- El controller importa los services de departamentos y conecta los eventos. -->
+    <script type="module" src="js/controllers/departamentosController.js"></script>
+</body>
+</html>

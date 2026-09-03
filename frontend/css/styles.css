@@ -1,0 +1,22 @@
+:root {
+    --brand: #3157d5;
+    --brand-dark: #172554;
+}
+
+/* Oculta las páginas protegidas hasta que /auth/me confirme la sesión. */
+.auth-pending body { visibility: hidden; }
+body { color: #172033; }
+/* La interfaz usa colores sólidos para mantener una apariencia consistente. */
+.login-page { background: #eef2f7; }
+.login-card { width: min(960px, 100%); overflow: hidden; border-radius: 1.25rem; }
+.brand-panel { min-height: 520px; background: var(--brand-dark); }
+.brand-mark { display: inline-grid; place-items: center; width: 3rem; height: 3rem; border-radius: .85rem; color: white; background: rgba(255,255,255,.18); font-weight: 800; }
+.brand-mark-sm { width: 2rem; height: 2rem; border-radius: .55rem; font-size: .8rem; }
+.letter-spacing, .section-label { letter-spacing: .12em; }
+.app-navbar { background: var(--brand-dark); }
+.section-label { color: var(--brand); text-transform: uppercase; font-size: .75rem; font-weight: 800; }
+.card, .modal-content { border-radius: 1rem; }
+.table > :not(caption) > * > * { padding: 1rem; }
+.table thead th { background: #f8fafc; color: #64748b; font-size: .75rem; letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; }
+.form-control, .form-select, .btn { border-radius: .65rem; }
+.btn-primary { background-color: var(--brand); border-color: var(--brand); }
